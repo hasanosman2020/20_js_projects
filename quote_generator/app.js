@@ -10,9 +10,17 @@ let apiQuotes = []
 function newQuote () {
   //Pick a random quote from apiQuotes array
   const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)]
-  //console.log(quote)
+  console.log(quote)
   authorName.textContent = quote.author
   quoteText.textContent = quote.text
+
+  if (quote.author === null) {
+    authorName.textContent = 'Anonymous'
+  }
+
+  if (quote.text.length > 120) {
+    quoteText.classList.add('long_quote')
+  }
 }
 
 //Get quotes from API
