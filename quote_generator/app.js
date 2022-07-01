@@ -1,7 +1,7 @@
 const quoteContainer = document.getElementById('quote_container')
 const quoteText = document.getElementById('quote')
 const authorName = document.getElementById('author')
-const twitterButton = document.getElementById('twotter')
+const twitterButton = document.getElementById('twitter')
 const newQuoteButton = document.getElementById('new_quote')
 
 let apiQuotes = []
@@ -18,8 +18,10 @@ function newQuote () {
     authorName.textContent = 'Anonymous'
   }
 
-  if (quote.text.length > 120) {
+  if (quote.text.length > 80) {
     quoteText.classList.add('long_quote')
+  } else {
+    quoteText.classList.remove('long_quote')
   }
 }
 
@@ -36,6 +38,16 @@ async function getQuotes () {
     //catch error here
   }
 }
+
+//Tweet quote
+function tweetQuote () {
+  const twitterUrl = `https://twitter.com/intent/tweet?text=${quoteText.textContent} - ${authorName.textContent}`
+  window.open(twitterUrl, '_blank')
+}
+
+// Event listeners
+newQuoteButton.addEventListener('click', newQuote)
+twitterButton.addEventListener('click', tweetQuote)
 
 //On Load
 getQuotes()
