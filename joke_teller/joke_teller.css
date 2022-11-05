@@ -24,7 +24,8 @@ button {
     height: 50px;
     font-family: 'Courier New', Courier, monospace;
     font-size: 20px;
-    color: black;
+    font-weight: bold;
+    color: #4A3626;
     background: #B3D0DD;
     border: none;
     border-radius: 5px;
