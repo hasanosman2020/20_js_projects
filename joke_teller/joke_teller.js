@@ -120,6 +120,20 @@ const VoiceRSS = {
 }
 test()*/
 
+function tellMe (joke) {
+  console.log('tell me:', joke)
+  VoiceRSS.speech({
+    key: 'd67bb6cf9caf47b19b62f448f1c6a544',
+    src: joke,
+    hl: 'en-us',
+    v: 'Linda',
+    r: 0,
+    c: 'mp3',
+    f: '44khz_16bit_stereo',
+    ssml: false
+  })
+}
+
 async function getJokes () {
   const apiUrl = 'https://v2.jokeapi.dev/joke/Any'
   try {
@@ -131,7 +145,8 @@ async function getJokes () {
     } else {
       joke = data.joke
     }
-    console.log(joke)
+    //console.log(joke)
+    tellMe(joke)
   } catch (error) {
     console.log('whoops', error)
   }
