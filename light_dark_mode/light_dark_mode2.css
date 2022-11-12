@@ -192,3 +192,68 @@ section #contact {
 .social_icons img:hover {
     color: var(--on-background);
 }
+
+/* Dark Mode Toggle */
+.theme_switch_wrapper{
+    display: flex;
+    align-items: center;
+    z-index: 100;
+    position: fixed;
+    right: 25px;
+    top: 30px;
+}
+.theme_switch_wrapper span {
+    margin-right: 10px; 
+    font-size: 1rem;
+}
+.toggle_text {
+    position: relative;
+    top: -4px;
+    right: 5px;
+    color: var(--on-background);
+}
+.theme_switch {
+    display: inline-block;
+    height: 34px;
+    position: relative;
+    width: 60px;
+}
+.theme_switch input {
+    display: none;
+}
+.slider {
+    background: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.slider::before{
+    background: #fff;
+    bottom: 4px;
+    content: "";
+    height: 26px;
+    left: 4px;
+    position: absolute;
+    transition: 4s;
+    width: 26px;
+}
+input:checked + .slider {
+    background: var(--primary-colour);
+}
+input:checked + .slider::before {
+    transform: translateX(26px);
+}
+.slider.round {
+    border-radius: 34px;
+}
+.slider.round::before {
+    border-radius: 50%;
+}
+.fas {
+    font-size: 1.5rem;
+    margin-right: 5px;
+    border: 2px solid red;
+}
