@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Condensed&display=swap');
+
+
+:root {
+    --clr-primary: #fff;
+    --clr-yellow: #fcbe05;
+    --clr-orange: #ec8a1b;
+    --clr-teal: #039586;
+    --clr-blue: #2b88cf;
+    --clr-purple: #be7ef5;
+}
+html {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    font-family: 'Cabin Condensed', sans-serif';
+    /*background: #000;*/
+}
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/***** MENU OVERLAY *****/
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*background: rgba(0, 0, 0, 0.9);*/
+    z-index: 100;
+    opacity: 0.5;
+    /*transform: translateX(-100vw);
+    visibility: hidden;*/
+    transition: all 0.5s ease-in-out;
+}
+
+/***** NAV MENU ITEMS *****/
+nav,
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+}
+nav ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: center;
+}
+nav ul li {
+    margin: 1rem 0;
+    height: 20%;
+    overflow: hidden;
+}
+nav ul li a {
+    display: block;
+    position: relative;
+    top: 40%;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    color: var(--clr-primary);
+    transition: all 0.3s ease-in-out;
+}
+nav ul li a:hover {
+    transform: scale(1.5);
+}
+nav li a::before{
+    content: '';
+    width: 30vw;
+    height: 3px;
+    background-color: #fff;
+    position: absolute;
+    top: 0%;
+    left: 0;
+    transform: translateX(-100%);
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+}
+nav li a:hover::before{
+    transform: translateX(0);
+opacity: 1;
+}
+nav li:nth-of-type(1){
+    background-color: var(--clr-yellow);
+}
+nav li:nth-of-type(2){
+    background-color: var(--clr-orange);
+}
+nav li:nth-of-type(3){
+    background-color: var(--clr-teal);
+}
+nav li:nth-of-type(4){
+    background-color: var(--clr-blue);
+}
+nav li:nth-of-type(5){
+    background-color: var(--clr-purple);
+}
+
+
+/***** HAMBURGER MENU / MENU BARS *****/
+.container {
+    display: inline-block;
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 200;
+}
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #fff;
+    margin: 6px 0;
+    transition: 0.4s;
+    
+}
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+.change .bar2 {
+    opacity: 0;
+}
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+}
